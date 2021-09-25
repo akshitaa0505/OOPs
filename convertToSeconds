@@ -1,0 +1,44 @@
+#include<iostream>
+using namespace std;
+
+class Time {
+    public:
+        int h;
+        int m;
+
+    void setValues(int hours, int minutes){
+        h=hours;
+        m=minutes;
+    }
+
+    int hoursToSeconds(){
+        int hour = h*60*60;
+        return hour;
+    }
+
+    int minutesToSeconds(){
+        int minute = m*60;
+        return minute;
+    }
+};
+
+int main(){
+    int h,m,s;
+    Time convertTime;
+    cout<<"Enter time hours?: "<<endl;
+    cin>>h;
+    cout<<"Enter minutes?: "<<endl;
+    cin>>m;
+    cout<<"Enter seconds?: "<<endl;
+    cin>>s;
+
+    cout<<"The time is: "<<h<<":"<<m<<":"<<s<<endl;
+
+    convertTime.setValues(h,m);
+    int hours = convertTime.hoursToSeconds();
+    int minutes = convertTime.minutesToSeconds();
+
+    int totalSeconds = hours+minutes+s;
+    cout<<"Total time in seconds: "<<totalSeconds;
+    return 0;
+}
